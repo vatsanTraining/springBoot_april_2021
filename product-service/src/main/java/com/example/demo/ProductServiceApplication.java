@@ -2,8 +2,10 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 
 import com.example.demo.model.Customer;
 import com.example.demo.model.Invoice;
@@ -18,6 +20,8 @@ public class ProductServiceApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext ctx=SpringApplication.run(ProductServiceApplication.class, args);
 	
+		
+		
 	//	Product tv = ctx.getBean(Product.class);
 		
 		// Use the overloaded getBean Method which takes the id and also the type of Bean
@@ -46,6 +50,7 @@ public class ProductServiceApplication {
 	}
 	
 	@Bean
+	@Primary
 	public Product fridge() {
 		
 		return new Product(102,"Samsung",24000.00);

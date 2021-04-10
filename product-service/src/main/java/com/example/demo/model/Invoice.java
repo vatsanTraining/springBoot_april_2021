@@ -6,23 +6,40 @@ import org.springframework.stereotype.Component;
 
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
-@Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-
+@NoArgsConstructor
+@ToString
 @Component(value = "inv1")
 public class Invoice {
 
+	public Customer getCustomer() {
+		return customer;
+	}
+	
+	@Autowired
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+	public Product getProduct() {
+		return product;
+	}
+	@Autowired
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 	Customer customer;
 	Product product;
 	
-	@Autowired
-	public Invoice(Customer customer,@Qualifier("tv") Product product) {
-		super();
-		this.customer = customer;
-		this.product = product;
-	}
+//	@Autowired
+//	public Invoice(Customer customer,@Qualifier("tv") Product product) {
+//		super();
+//		this.customer = customer;
+//		this.product = product;
+//	}
 
 	
 	
