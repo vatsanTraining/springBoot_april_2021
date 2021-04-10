@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
+import org.springframework.core.annotation.Order;
 
 import com.example.demo.config.ApplicationConfig;
 import com.example.demo.model.Customer;
@@ -32,20 +33,20 @@ public class ProductServiceApplication {
 	
 		
 		
-	//	Product tv = ctx.getBean(Product.class);
+	Product tv = ctx.getBean(Product.class);
 		
-		// Use the overloaded getBean Method which takes the id and also the type of Bean
+ //Use the overloaded getBean Method which takes the id and also the type of Bean
 		
 //		Product tv = ctx.getBean("fridge",Product.class);
-//		
-//		log.info(tv.toString());
-//		
-//		log.info("IoC Container -Reference"+ctx.getClass().getName());
+		
+		log.info(tv.toString());
+		
+		log.info("IoC Container -Reference"+ctx.getClass().getName());
 		
 		
-//		Invoice inv1 = ctx.getBean("inv1",Invoice.class);
-//		
-//		
+		Invoice inv1 = ctx.getBean("inv1",Invoice.class);
+		
+		
 //		
 //		log.info(inv1.toString());
 //	
@@ -107,6 +108,7 @@ public class ProductServiceApplication {
 	
 	
 	@Bean
+	@Order
 	//@Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 	//@Lazy
 	public Invoice sureshInvoice(@Qualifier("magesh") Customer customer,@Qualifier("printer")  Product prod) {

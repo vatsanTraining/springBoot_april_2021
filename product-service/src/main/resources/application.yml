@@ -1,0 +1,4 @@
+server:
+  port: 2020
+
+logging:  level:    '[org.springframework.boot]': trace
