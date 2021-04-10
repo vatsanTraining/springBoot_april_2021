@@ -33,11 +33,16 @@ public class ProductServiceApplication {
 		log.info("IoC Container -Reference"+ctx.getClass().getName());
 		
 		
-		Invoice inv1 = ctx.getBean("inv1",Invoice.class);
+//		Invoice inv1 = ctx.getBean("inv1",Invoice.class);
+//		
+//		
+//		
+//		log.info(inv1.toString());
+//	
 		
+		Invoice inv2 = ctx.getBean("rameshInvoice",Invoice.class);
+		log.info(inv2.toString());
 		
-		log.info(inv1.toString());
-	
 		ctx.close();
 	}
 	
@@ -63,16 +68,16 @@ public class ProductServiceApplication {
 	}
 	
 	
-//	@Bean
-//	public Invoice rameshInvoice() {
-//		
-//		return new Invoice(ramesh(),fridge());
-//	}
-//	
-//	@Bean
-//	public Invoice rameshSecondInvoice() {
-//		
-//		return new Invoice(ramesh(),tv());
-//	}
+	@Bean
+	public Invoice rameshInvoice() {
+		
+		return new Invoice(ramesh(),fridge());
+	}
+	
+	@Bean
+	public Invoice rameshSecondInvoice() {
+		
+		return new Invoice(ramesh(),tv());
+	}
 	
 }
