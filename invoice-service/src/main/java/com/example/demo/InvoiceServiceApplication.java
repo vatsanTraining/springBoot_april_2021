@@ -15,6 +15,11 @@ import com.example.demo.repos.InvoiceRepository;
 public class InvoiceServiceApplication {
 
 	public static void main(String[] args) {
+		
+		String port =System.getProperty("server.port");
+		
+		System.out.println("PoRT :="+ port);
+		
 		SpringApplication.run(InvoiceServiceApplication.class, args);
 	}
 
