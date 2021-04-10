@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.*;
 import com.example.demo.entity.*;
@@ -11,7 +12,6 @@ public class InvoiceService {
 	
 	private InvoiceRepository repo;
 
-	
 	public InvoiceService(InvoiceRepository repo) {
 		super();
 		this.repo = repo;
@@ -19,6 +19,7 @@ public class InvoiceService {
 
 	
 	public List<Invoice> findAll(){
+		
 		
 		return repo.findAll();
 	}
