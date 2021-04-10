@@ -31,7 +31,7 @@ public class ProductServiceApplication {
 	
 	// Create a Factory Method to register Bean 
 	
-	@Bean
+	@Bean()
 	public Product tv() {
 		
 		return new Product(101,"Sony Tv",34000.00);
