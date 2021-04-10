@@ -34,10 +34,10 @@ public class Invoice {
 //		this.product = product;
 //	}
 	
-	@Autowired
+	//@Autowired
 	Customer customer;
 	
-	@Autowired
+	//@Autowired
 	Product product;
 	
 //	@Autowired

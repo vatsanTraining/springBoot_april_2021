@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -40,8 +41,13 @@ public class ProductServiceApplication {
 //		log.info(inv1.toString());
 //	
 		
-		Invoice inv2 = ctx.getBean("rameshInvoice",Invoice.class);
+//		Invoice inv2 = ctx.getBean("rameshInvoice",Invoice.class);
+//		log.info(inv2.toString());
+//		
+		
+		Invoice inv2 = ctx.getBean("sureshInvoice",Invoice.class);
 		log.info(inv2.toString());
+		
 		
 		ctx.close();
 	}
@@ -78,6 +84,14 @@ public class ProductServiceApplication {
 	public Invoice rameshSecondInvoice() {
 		
 		return new Invoice(ramesh(),tv());
+	}
+	
+	
+	@Bean
+	public Invoice sureshInvoice(@Qualifier("magesh") Customer customer,@Qualifier("printer")  Product prod) {
+		
+		return new Invoice(customer,prod);
+		
 	}
 	
 }
