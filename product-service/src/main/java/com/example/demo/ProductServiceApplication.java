@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import com.example.demo.model.Customer;
+import com.example.demo.model.Invoice;
 import com.example.demo.model.Product;
 
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +27,12 @@ public class ProductServiceApplication {
 		log.info(tv.toString());
 		
 		log.info("IoC Container -Reference"+ctx.getClass().getName());
+		
+		
+		Invoice inv1 = ctx.getBean("inv1",Invoice.class);
+		
+		
+		log.info(inv1.toString());
 	
 		ctx.close();
 	}
@@ -42,5 +50,24 @@ public class ProductServiceApplication {
 		
 		return new Product(102,"Samsung",24000.00);
 	}
+	
+	@Bean
+	public Customer ramesh() {
+		
+		return new Customer(2001,"Ramesh");
+	}
+	
+	
+//	@Bean
+//	public Invoice rameshInvoice() {
+//		
+//		return new Invoice(ramesh(),fridge());
+//	}
+//	
+//	@Bean
+//	public Invoice rameshSecondInvoice() {
+//		
+//		return new Invoice(ramesh(),tv());
+//	}
 	
 }
