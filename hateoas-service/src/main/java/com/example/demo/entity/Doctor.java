@@ -1,7 +1,11 @@
 package com.example.demo.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AccessLevel;
@@ -26,6 +30,10 @@ public class Doctor {
 	String doctorName;
 	
 	
+	 @OneToMany(targetEntity =Patient.class,  cascade = CascadeType.ALL,
+	            fetch=FetchType.EAGER)
+	    @JoinColumn(name = "doctor_ref" , referencedColumnName = "doctorId")
+
 	Set<Patient> patientList;
 	
 }
