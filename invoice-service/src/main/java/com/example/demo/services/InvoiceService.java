@@ -24,4 +24,20 @@ public class InvoiceService {
 		return repo.findAll();
 	}
 	
+	
+	public Invoice findById(int id) {
+		
+		
+		return repo.findById(id).get();
+		
+		//return repo.findById(id).orElseThrow(()-> new RuntimeException("Given Id not present"));
+		
+		}
+	
+	public Invoice addInvoice(Invoice entity) {
+		
+		return this.repo.save(entity);
+	}
+	
+	
 }
