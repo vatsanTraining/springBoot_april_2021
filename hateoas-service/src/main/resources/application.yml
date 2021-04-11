@@ -1,5 +1,5 @@
 server:
-  port: 5050
+  port: 2525
 spring:
   datasource:
     username: root

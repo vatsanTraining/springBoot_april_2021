@@ -6,6 +6,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +16,6 @@ import lombok.experimental.FieldDefaults;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 
 @Entity
@@ -27,7 +28,18 @@ public class Patient {
 	String patientName;
 	String caseHistory;
 	
-	    @ManyToOne
-	    @JoinColumn(name="doctor_ref" ,referencedColumnName = "doctorId")
-	 	Doctor doctor;
+	
+	    public Patient(int patientId, String patientName, String caseHistory) {
+		super();
+		this.patientId = patientId;
+		this.patientName = patientName;
+		this.caseHistory = caseHistory;
+	}
+
+
+//		@ManyToOne
+//	    @JoinColumn(name="doctor_ref" ,referencedColumnName = "doctorId")
+//		@JsonIgnore
+//		 
+//	 	Doctor doctor;
 }

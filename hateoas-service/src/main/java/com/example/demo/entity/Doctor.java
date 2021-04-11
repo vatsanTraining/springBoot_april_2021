@@ -30,8 +30,10 @@ public class Doctor {
 	String doctorName;
 	
 	
-	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL,fetch=FetchType.EAGER)
-
+	@OneToMany(targetEntity =Patient.class,  cascade = CascadeType.ALL,
+            fetch=FetchType.EAGER)
+    @JoinColumn(name = "patient_ref" , referencedColumnName = "doctorId")
+ 
 	
 	Set<Patient> patientList;
 	
