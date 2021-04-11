@@ -78,4 +78,18 @@ public class InvoiceController {
 	}
 	
 	
+	@GetMapping(path = "/invoices/srch/{name}")
+	public List<Invoice> findByName(@PathVariable("name") String name){
+		
+		return this.service.findByName(name);
+	}
+	
+	@GetMapping(path = "/invoices/update/amount")
+	public ResponseEntity<Integer> updateAmount(){
+		
+		int rowsUpdated= this.service.updateAmount();
+		
+	     return ResponseEntity.ok().body(rowsUpdated);
+
+	}
 }

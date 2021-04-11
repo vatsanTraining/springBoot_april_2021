@@ -61,4 +61,15 @@ public class InvoiceService {
     	      return optional;  
     	 
     }
+    
+     public List<Invoice> findByName(String name){
+    	 
+    	  return this.repo.findBycustomerName(name);
+     }
+     
+     
+     public int updateAmount() {
+    	 
+    	 return this.repo.updateAmount();
+     }
 }
