@@ -11,7 +11,11 @@ import org.springframework.context.annotation.Bean;
 import com.example.demo.entity.Invoice;
 import com.example.demo.repos.InvoiceRepository;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
+
 @SpringBootApplication
+@OpenAPIDefinition(info = @Info(title = "Product Service"))
 public class InvoiceServiceApplication {
 
 	public static void main(String[] args) {

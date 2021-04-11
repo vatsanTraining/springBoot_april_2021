@@ -2,8 +2,10 @@ package com.example.demo.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,8 +17,11 @@ import java.util.*;
 import com.example.demo.entity.*;
 import com.example.demo.services.InvoiceService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping(path = "/api/v1")
+@CrossOrigin(origins = "*")
 public class InvoiceController {
 
 	
@@ -77,17 +82,17 @@ public class InvoiceController {
 
 	}
 	
-	
+	@Operation(summary = "Used to Find Invoices By Customer Name")
 	@GetMapping(path = "/invoices/srch/{name}")
 	public List<Invoice> findByName(@PathVariable("name") String name){
 		
 		return this.service.findByName(name);
 	}
 	
-	@GetMapping(path = "/invoices/update/amount")
-	public ResponseEntity<Integer> updateAmount(){
+	@PatchMapping(path = "/invoices/update/amount/{id}")
+	public ResponseEntity<Integer> updateAmount(@PathVariable("id") int id){
 		
-		int rowsUpdated= this.service.updateAmount();
+		int rowsUpdated= this.service.updateAmount(id);
 		
 	     return ResponseEntity.ok().body(rowsUpdated);
 

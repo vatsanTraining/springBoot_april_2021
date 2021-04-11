@@ -68,8 +68,8 @@ public class InvoiceService {
      }
      
      
-     public int updateAmount() {
+     public int updateAmount(int id) {
     	 
-    	 return this.repo.updateAmount();
+    	 return this.repo.updateAmount(id);
      }
 }
