@@ -2,6 +2,8 @@ package com.example.demo.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AccessLevel;
@@ -25,4 +27,7 @@ public class Patient {
 	String patientName;
 	String caseHistory;
 	
+	    @ManyToOne
+	    @JoinColumn(name="doctor_ref" ,referencedColumnName = "doctorId")
+	 	Doctor doctor;
 }
