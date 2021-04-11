@@ -1,9 +1,12 @@
 package com.example.demo.controllers;
 
+import java.util.concurrent.CompletableFuture;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClient.ResponseSpec;
 
 import reactor.core.publisher.Flux;
 
@@ -21,15 +24,23 @@ public class ClientController {
 	public String getAllInvoices() {
 		
 		
-		 Flux<String> respFlux = client.get()
-		 .uri("http://localhost:6060/api/v1/invoices/119")
-		 .retrieve().bodyToFlux(String.class);
-		 
-		 
-		 respFlux.subscribe(resp -> this.result = resp);
-		 
+//		 Flux<String> respFlux = client.get()
+//		 .uri("http://localhost:6060/api/v1/invoices/119")
+//		 .retrieve().bodyToFlux(String.class);
+//		 
+//		 
+//		 respFlux.subscribe(resp -> this.result = resp);
+//		 
+//		 return this.result;
+
+  
+//		return  client.get()
+//				 .uri("http://localhost:6060/api/v1/invoices")
+//				 .retrieve().bodyToFlux(String.class).blockLast();
+//		 
+
 		 return this.result;
-		
+		 
 	}
 	
 	@GetMapping(path = "/client/flux/invoices")
@@ -37,9 +48,10 @@ public class ClientController {
 		
 		
 		return  client.get()
-		 .uri("http://localhost:6060/api/v1/invoices/119")
+		 .uri("http://localhost:6060/api/v1/invoices")
 		 .retrieve().bodyToFlux(String.class);
 		 
-				
+	
+			
 	}
 }
