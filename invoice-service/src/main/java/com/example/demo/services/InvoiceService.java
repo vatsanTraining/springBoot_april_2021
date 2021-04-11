@@ -41,6 +41,24 @@ public class InvoiceService {
 		return this.repo.save(entity);
 	}
 	
+    public Invoice updateInvoice(Invoice entity) {
+		
+		return this.repo.save(entity);
+	}
 	
 	
+    public Optional<Invoice> removeInvoice(Invoice entity) {
+    	
+    	Optional<Invoice> optional = Optional.empty();
+
+    	if(this.repo.existsById(entity.getId())) {
+
+    	this.repo.delete(entity);
+
+    	optional = Optional.of(entity);
+    	}
+
+    	      return optional;  
+    	 
+    }
 }
