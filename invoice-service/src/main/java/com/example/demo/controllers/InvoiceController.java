@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,10 +40,19 @@ public class InvoiceController {
 	}
 	
 
+//	@PostMapping(path = "/invoices")
+//	public Invoice save(@RequestBody Invoice entity){
+//		
+//		return this.service.addInvoice(entity);
+//	}
+
 	@PostMapping(path = "/invoices")
-	public Invoice save(@RequestBody Invoice entity){
-		
-		return this.service.addInvoice(entity);
+
+	public ResponseEntity<Invoice> save(@RequestBody Invoice entity) {
+			
+		  Invoice addedEntity = this.service.addInvoice(entity);
+		  
+		return ResponseEntity.status(HttpStatus.CREATED).body(addedEntity);
 	}
 
 	
