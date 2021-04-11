@@ -8,6 +8,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.hateoas.RepresentationModel;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +27,7 @@ import java.util.*;
 @Entity
 @Table(name = "apr_doctor")
 
-public class Doctor {
+public class Doctor extends RepresentationModel<Doctor> {
 
 	@Id
 	int doctorId;
@@ -34,7 +38,7 @@ public class Doctor {
             fetch=FetchType.EAGER)
     @JoinColumn(name = "patient_ref" , referencedColumnName = "doctorId")
  
-	
+	@JsonIgnore
 	Set<Patient> patientList;
 	
 }

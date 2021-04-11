@@ -6,6 +6,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AccessLevel;
@@ -21,7 +23,7 @@ import lombok.experimental.FieldDefaults;
 @Entity
 @Table(name = "apr_patient")
 
-public class Patient {
+public class Patient extends RepresentationModel<Patient> {
 
 	@Id
 	int patientId;
