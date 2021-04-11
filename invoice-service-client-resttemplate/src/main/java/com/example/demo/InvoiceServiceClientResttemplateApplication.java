@@ -16,7 +16,8 @@ public class InvoiceServiceClientResttemplateApplication {
 	   RestTemplate template = ctx.getBean(RestTemplate.class);
 	   
 	   
-	   String response = template.getForObject("http://localhost:6060/api/v1/invoices", String.class);
+	   InvoiceDTO response = template.getForObject("http://localhost:6060/api/v1/invoices", 
+			    InvoiceDTO.class);
 	
 	   System.out.println(response);
 	}

@@ -1,0 +1,37 @@
+server:
+  port: 5050
+spring:
+  datasource:
+    username: root
+    password: srivatsan
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+  config:
+    activate:
+      on-profile:
+      - "dev"
+---
+server:
+  port: 2020
+spring:
+  datasource:
+    username: root
+    password: srivatsan
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: false
+  config:
+    activate:
+      on-profile:
+      - "prod"
