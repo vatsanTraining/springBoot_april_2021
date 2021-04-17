@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.*;
 
@@ -11,6 +12,7 @@ public class HotelService {
 
 	private HotelRepository  repo;
 
+	
 	public HotelService(HotelRepository repo) {
 		super();
 		this.repo = repo;
