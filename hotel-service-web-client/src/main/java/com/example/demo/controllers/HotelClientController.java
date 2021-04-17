@@ -15,12 +15,15 @@ public class HotelClientController {
 	
 	private WebClient client ;
 
-	public HotelClientController() {
+	
+	
+	public HotelClientController(WebClient client) {
 		super();
-		// TODO Auto-generated constructor stub
+		this.client = client;
 	}
-	
-	
+
+
+
 	@GetMapping(path = "/hotels")
 	public Flux<String> getAllHotels(){
 		
