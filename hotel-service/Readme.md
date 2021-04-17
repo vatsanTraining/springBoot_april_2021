@@ -31,3 +31,12 @@ eureka:
 
 8) In the Registered Instance Column , can see the hotel-service registered
 
+9) Create a Entity Class Hotel and add @Entity and @Table
+
+10) Create Interface HotelRepository extending JpaRepository
+
+11) Create  HotelService autowire HotelRepository and invoke the 
+    methods of the repository
+    
+12) Create a RestController autowire HotelService and do the HTTP 
+    method mappings    
