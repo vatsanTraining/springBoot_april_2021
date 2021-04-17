@@ -32,7 +32,7 @@ public class HotelServiceApplication {
 
 				repo.save(new Hotel(101,"Sheraton","chennai"));
 				repo.save(new Hotel(102,"Park Tower","Pune"));
-				repo.save(new Hotel(101,"Orange","Bengaluru"));
+				repo.save(new Hotel(103,"Orange","Bengaluru"));
 				
 			}
 		};
