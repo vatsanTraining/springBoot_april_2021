@@ -21,4 +21,9 @@ public class HotelService {
 	public List<Hotel> getHotels(){
 		return this.repo.findAll();
 	}
+	
+	public Hotel getHotelById(int id) {
+		
+		return this.repo.findById(id).get();
+	}
 }
