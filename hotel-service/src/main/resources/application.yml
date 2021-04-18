@@ -1,6 +1,13 @@
 server:
   port: 6063
-
+  
+info:
+  app:
+    name:@Hotel Service@
+    version:@1.0@
+  java:
+    version:@java.version@  
+  
 spring:
   application:
     name: hotel-service
