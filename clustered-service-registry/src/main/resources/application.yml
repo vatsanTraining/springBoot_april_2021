@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile:
+      - peer1
+      
+      
+      
+      
+---
+spring:
+  config:
+    activate:
+      on-profile:
+      - peer2
+      

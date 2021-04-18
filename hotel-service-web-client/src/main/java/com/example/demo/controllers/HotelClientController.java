@@ -43,7 +43,7 @@ public class HotelClientController {
 		
 		
 		return client.get()
-		   .uri("lb://HOTEL-SERVICE/api/v1/hotels/"+id)
+		   .uri("lb://HOTEL-SERVICE/api/v1/hotels/{id}",101)
 		    .retrieve()
 		     .bodyToMono(String.class);
 		     
