@@ -1,0 +1,31 @@
+server:
+  port: 6063
+
+# Application Name will be used as service-Id when registred with eureka  
+spring:
+  application:
+    name: hotel-service
+  datasource:
+    username: root
+    password: srivatsan
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+    
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+      
+
+
+            
+
