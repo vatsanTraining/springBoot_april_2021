@@ -1,0 +1,6 @@
+server:
+  port: 7075
+
+spring:  application:    name: review-service-client
+
+eureka:  client:    service-url:      defaultZone: http://eureka-peer1:8765/eureka
