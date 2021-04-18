@@ -6,7 +6,22 @@ spring:
     name: hotel-service
   config:
     import: configserver:http://localhost:8888
+
+  boot:
+    admin:
+      client:
+        url:
+        - http://localhost:9595
     
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"    
+  endpoint:
+    health:
+      show-details: always
 #eureka:
 #  client:
 #    register-with-eureka: true
