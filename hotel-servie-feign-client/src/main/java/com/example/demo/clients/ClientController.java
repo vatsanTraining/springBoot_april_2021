@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CleintController {
+public class ClientController {
 
 	
 	@Autowired
 	private HotelServiceClient service;
 	
 	@GetMapping(path = "/client/hotels")
-	public List<String> getAll() {
+	public String getAll() {
 		
 		return this.service.getAllHotels();
 	}

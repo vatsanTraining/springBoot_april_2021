@@ -9,5 +9,5 @@ public interface HotelServiceClient {
 
 	
 	@GetMapping(path = "/api/v1/hotels")
-	public List<String> getAllHotels();
+	public String getAllHotels();
 }
