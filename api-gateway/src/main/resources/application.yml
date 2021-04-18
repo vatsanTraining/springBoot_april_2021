@@ -1,0 +1,10 @@
+server:
+  port: 8080
+  
+spring:  application:    name: api-gateway
+    
+  cloud:    gateway:      discovery:        locator:          enabled: true
+          lower-case-service-id: true  
+          
+          
+management:  endpoints:    web:      exposure:        include:        - "*"
