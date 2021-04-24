@@ -24,11 +24,11 @@ public class CustomGlobalFilter implements GlobalFilter,Ordered {
         
         System.out.println("RESULT =========="+ result);
         
-        if(result) {
-        	exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
-        	return exchange.getResponse().setComplete();
-        }
-      
+//        if(result) {
+//        	exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+//        	return exchange.getResponse().setComplete();
+//        }
+//      
 		return chain.filter(exchange);
 }
 
