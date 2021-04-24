@@ -9,6 +9,7 @@ spring:  application:    name: api-gateway
   cloud:    gateway:      discovery:        locator:          enabled: true
           lower-case-service-id: true      default-filters:      - name: CustomPreFilter
       - name: CustomPostFilter
+        
          
           
 management:  endpoints:    web:      exposure:        include:        - "*"
