@@ -15,6 +15,10 @@ public class CustomPreFilter extends AbstractGatewayFilterFactory<CustomPreFilte
 		
 	}
 
+	public CustomPreFilter() {
+		super(Config.class);
+	}
+
 	@Override
 	public GatewayFilter apply(Config config) {
 
@@ -23,10 +27,11 @@ public class CustomPreFilter extends AbstractGatewayFilterFactory<CustomPreFilte
 		 return (exchange, chain) -> {
 	            ServerHttpRequest request = exchange.getRequest();
 
-	    URI requestUrl = exchange.getRequiredAttribute(ServerWebExchangeUtils.GATEWAY_REQUEST_URL_ATTR);
+	 //  URI requestUri = exchange.get
 
+	   
 	            System.out.println("PRE FILTER =:"+request);
-	           System.out.println("PRE Filter =:"+ requestUrl);
+	         // System.out.println("PRE Filter =:"+ requestUrl);
 	            
 	            return chain.filter(exchange.mutate().build());
 	        };

@@ -5,6 +5,7 @@ import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFac
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
 
+
 import reactor.core.publisher.Mono;
 
 @Component
@@ -13,6 +14,13 @@ public class CustomPostFilter extends AbstractGatewayFilterFactory<CustomPostFil
 public static class Config{
 		
 	}
+
+
+public CustomPostFilter() {
+	super(Config.class);
+
+}
+
 
 @Override
 public GatewayFilter apply(Config config) {
