@@ -16,6 +16,7 @@ public class ReviewServiceClientCircuitBreakerApplication {
 
 	
 	@Bean
+	@LoadBalanced
 	public RestTemplate template() {
 		
 		return new RestTemplate();

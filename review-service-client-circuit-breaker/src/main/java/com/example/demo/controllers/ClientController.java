@@ -21,7 +21,7 @@ public class ClientController {
 	@CircuitBreaker(name="reviewService",fallbackMethod = "fallBack")
 	public ResponseEntity<String> getReviews() {
 		
-		String resp =template.getForObject("http://localhost:7070/reviews", String.class);
+		String resp =template.getForObject("http://REVIEW-SERVICE/reviews", String.class);
 		
 		return new ResponseEntity(resp,HttpStatus.OK);
 	}
@@ -30,7 +30,7 @@ public class ClientController {
 	
 	public ResponseEntity<String> fallBack(Exception e){
 		
-		return new ResponseEntity("Item Service is Down"+e.getMessage(),HttpStatus.OK);
+		return new ResponseEntity("Item Service is Down",HttpStatus.OK);
 
 		
 	}
