@@ -1,2 +1,7 @@
 server:
   port: 7575
+resilience4j:
+  circuitbreaker:
+    instances:
+      reviewService:
+        registerHealthIndicator: true
