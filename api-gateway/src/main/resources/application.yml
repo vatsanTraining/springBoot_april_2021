@@ -8,8 +8,8 @@ spring:
         uri: lb://REVIEW-SERVICE
         predicates:        - Path= /reviews/**
       - id: order-service
-        uri: http://localhost:5050/
-        predicates:        - Path= /orders/**          
+        uri: http://localhost:5565/
+        predicates:        - Path= /api/v1/orders/**          
 
 management:
   endpoints:
