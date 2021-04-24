@@ -6,7 +6,9 @@ import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.cloud.gateway.support.ServerWebExchangeUtils;
 import org.springframework.http.server.reactive.ServerHttpRequest;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CustomPreFilter extends AbstractGatewayFilterFactory<CustomPreFilter.Config> {
 
 	public static class Config{
@@ -16,6 +18,7 @@ public class CustomPreFilter extends AbstractGatewayFilterFactory<CustomPreFilte
 	@Override
 	public GatewayFilter apply(Config config) {
 
+		
 		
 		 return (exchange, chain) -> {
 	            ServerHttpRequest request = exchange.getRequest();
