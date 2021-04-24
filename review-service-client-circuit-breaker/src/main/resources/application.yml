@@ -5,8 +5,8 @@ resilience4j:
     instances:
       reviewService:
         registerHealthIndicator: true
-        automaticTransitionFromOpenToHalfOpenEnabled: true
-        failureRateThreshold: 50
+        automaticTransitionFromOpenToHalfOpenEnabled: false
+        failureRateThreshold: 10
         minimumNumberOfCalls: 3
         permittedNumberOfCallsInHalfOpenState: 2
         slidingWindowSize: 10
