@@ -38,6 +38,6 @@ public class ReviewServiceClientApplication {
 	@Bean
 	public BasicAuthenticationInterceptor interceptor() {
 		
-		return new BasicAuthenticationInterceptor("nepal","nepal");
+		return new BasicAuthenticationInterceptor("india","india");
 	}
 }

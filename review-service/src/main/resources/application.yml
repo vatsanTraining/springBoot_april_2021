@@ -2,4 +2,8 @@ server:
   port: 7070
 
 spring:  application:    name: review-service
+  datasource:    username: root
+    password: srivatsan
+    driver-class-name: com.mysql.cj.jdbc.Driver 
+    url: jdbc:mysql://localhost:3306/test
 
