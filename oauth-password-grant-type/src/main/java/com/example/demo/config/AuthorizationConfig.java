@@ -31,12 +31,18 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		
+//		 clients.inMemory().withClient("ourclient")
+//		      .secret(encoder.encode("pass123"))
+//		         .authorizedGrantTypes("password")
+//		            .scopes("read","write")
+//		               .redirectUris("http://localhost:8585/login/code/ourclient");
+//		 
+	
 		 clients.inMemory().withClient("ourclient")
-		      .secret(encoder.encode("pass123"))
-		         .authorizedGrantTypes("password")
-		            .scopes("read","write")
-		               .redirectUris("http://localhost:8585/login/code/ourclient");
-		 
+	      .secret(encoder.encode("pass123"))
+	         .authorizedGrantTypes("client_credentials")
+	            .scopes("read","write")
+	               .redirectUris("http://localhost:8585/login/code/ourclient");
 	
 	}
 
