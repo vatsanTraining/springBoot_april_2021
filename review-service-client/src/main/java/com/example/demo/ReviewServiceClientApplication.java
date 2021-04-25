@@ -2,7 +2,6 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.support.BasicAuthenticationInterceptor;
@@ -17,14 +16,13 @@ public class ReviewServiceClientApplication {
 	       RestTemplate template = ctx.getBean(RestTemplate.class);
 	       
 	       
-	       String response = template.getForObject("http://REVIEW-SERVICE/reviews", String.class);
+	       String response = template.getForObject("http://localhost:7070/reviews", String.class);
 	       
 	       System.out.println(response);
 	
 	}
 	
 	
-	@LoadBalanced
 	@Bean
 	public RestTemplate template(BasicAuthenticationInterceptor interceptor) {
 		
