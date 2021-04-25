@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.client.support.BasicAuthenticationInterceptor;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
@@ -18,16 +19,27 @@ public class ReviewServiceClientApplication {
 	       
 	       String response = template.getForObject("http://REVIEW-SERVICE/reviews", String.class);
 	       
+	       System.out.println(response);
 	
 	}
 	
 	
 	@LoadBalanced
 	@Bean
-	public RestTemplate template() {
+	public RestTemplate template(BasicAuthenticationInterceptor interceptor) {
 		
+		RestTemplate template = new RestTemplate();
+		  
+		template.getInterceptors().add(interceptor);
+		  
+		return template;
 		
-		return new RestTemplate();
 	}
 
+
+	@Bean
+	public BasicAuthenticationInterceptor interceptor() {
+		
+		return new BasicAuthenticationInterceptor("nepal","nepal");
+	}
 }
