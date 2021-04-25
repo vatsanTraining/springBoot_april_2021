@@ -25,17 +25,18 @@ public class OauthClientResttemplateApplication {
 	@Bean
 	public OAuth2RestTemplate template() {
 		
-		ResourceOwnerPasswordResourceDetails details = new ResourceOwnerPasswordResourceDetails();
+	//	ResourceOwnerPasswordResourceDetails details = new ResourceOwnerPasswordResourceDetails();
 
-		//ClientCredentialsResourceDetails details = new ClientCredentialsResourceDetails();
+		ClientCredentialsResourceDetails details = new ClientCredentialsResourceDetails();
 		
 	     details.setAccessTokenUri("http://localhost:8585/oauth/token");
 
 	     details.setClientId("ourclient");
 	     details.setClientSecret("pass123");
-	     details.setUsername("india");
-	     details.setPassword("india");
-	     details.setGrantType("password");
+	   //  details.setUsername("india");
+	    // details.setPassword("india");
+	     //details.setGrantType("password");
+	     details.setGrantType("client_credentials");
 	      
 	            OAuth2RestTemplate template = new OAuth2RestTemplate(details);
 	                return template;
